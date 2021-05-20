@@ -1,5 +1,5 @@
 '''
-이름, 전화번호, 이메일, 주소를 받아서 연락처 입력, 출력, 삭제하는 프로그램을 완성하시오.
+이름,전화번호,이메일,주소를 받아서 연락처 입력,출력,삭제하는 프로그램을 완성하시오.
 '''
 
 
@@ -34,11 +34,15 @@ class Contacts():
                    if j.name == del_name:
                        del ls[i]
            elif menu == '4':
-
+               pass
 
            else:
-               print('잘못된 주문입니다')
+               print('잘못된 주문 입니다')
                continue
 
 
+
+
+
 Contacts.main()
+
