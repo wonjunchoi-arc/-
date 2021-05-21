@@ -3,8 +3,17 @@ class Stock(object):
         self.name = name
         self.number =number
 
-    def get_Stock(self):
+    def to_string(self):
         return f'종목명 {self.name}, 종목번호{self.number}'
+
+
+
+    @staticmethod
+    def del_element(ls, name):  # (ls, name)을 모두 주는 이유
+        for i, j in enumerate(ls):
+            if j.name == name:
+                del ls[i]
+
 
     @staticmethod
     def main():
@@ -14,27 +23,27 @@ class Stock(object):
             if menu == '0':
                 break
             elif menu == '1':
-                ls.append(Stock(input('종목명'), input('종목코드')))
+                ls.append(Stock(input('종목이름'), input('종목코드')))
 
             elif menu == '2':
                 for i in ls:
-                    print(f'출력결과값: {i.get_Stock()}')
+                    print(f'출력결과값: {i.to_string()}')
 
             elif menu == '3':
-                edit_name = input("수정할 이름 :")
-                edit_info = Stock(input("종목이름:"), input("종목번호 : "))
-                for i,j in enumerate(ls):
-                    if j.name == edit_name:
-                        del ls[i]
-                        ls.append(edit_info)
-
-
+                name = input("수정할 이름 :")
+                stock = Stock(input("종목이름:"), input("종목번호 : "))   ##순서가 수정할 이름 삭제, 추가 아닌가?
+                stock.del_element(ls, name)
+                ls.append(stock)
 
             elif menu == '4':
-                del_name = input('삭제할 주식:')
-                for i, j in  enumerate(ls):
-                    if j.name == del_name:
-                        del ls[i]
+                name = input('삭제할 주식:')
+                stock.del_element(ls, input('종목코드'))  # 종목코드 넣는것 이해 안감
+
+            else:
+                print('잘못된 입력입니다.')
+                continue
+
+
 
 
 Stock.main()
