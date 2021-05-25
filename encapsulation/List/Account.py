@@ -21,6 +21,15 @@ class Account(object):
         return ''.join(ls)
 
 
+
+'''
+ls = []
+for i in range(10):
+ls
+
+
+'''
+
     def to_string(self):
         return f'Bank Name: {self.BANK_NAME} Name: {self.name}, account_number{self.account_number}, Money:{self.money}'
 
@@ -64,7 +73,8 @@ class Account(object):
                         ls.append((replace))
 
             elif menu == '5':
-                Account.del_account((ls, input('삭제할 계좌번호')))
+                Account.del_account(ls, input('삭제할 계좌번호'))
+
             else:
                 print('Worng Number')
                 continue
